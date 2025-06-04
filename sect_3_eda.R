@@ -25,7 +25,8 @@ df <- tibble(
 
 
 # Display the first few rows of the dataset
-df %>% head()
+df %>% 
+  head()
 
 
 # glimpse 
@@ -39,10 +40,15 @@ df %>% glimpse()
 ## Histogram -------------------------------------------------------------
 
 
+# ggplot(df, aes(x = age)) +
+#   geom_histogram(binwidth = 5, fill = "#FE7800", color = "black") +
+#   labs(title = "Histogram of Age", x = "Age", y = "Count") +
+#   theme_minimal()
+
 # Histogram of age
 df %>%
-  ggplot(aes(x = age)) +
-  geom_histogram(binwidth = 5, fill = "#FE7800", 
+  ggplot( aes(x = age)) + 
+  geom_histogram(binwidth = 5, fill = "#f5b041", 
                  color = "black") +
   labs(title = "Histogram of Age", x = "Age", y = "Count") +
   theme_bw()
@@ -72,7 +78,8 @@ df %>%
 
 
 ggplot(df, aes(x = age, fill = gender)) +
-  geom_histogram(position = "identity", alpha = 0.2, bins = 15, color = "black") +
+  geom_histogram(position = "identity", alpha = 0.4, 
+                 bins = 15, color = "black") +
   labs(
     title = "Age Distribution by Gender",
     x = "Age",
@@ -81,8 +88,6 @@ ggplot(df, aes(x = age, fill = gender)) +
   scale_fill_manual(values = c("M" = "blue", "F" = "pink")) +
   theme_minimal()
 
-
-library(ggplot2)
 
 ggplot() +
   # Male histogram
@@ -115,12 +120,21 @@ ggplot() +
 
 
 # Boxplot of diagnosis by age
-df %>% 
+
+
+boxplot_ex <-  df %>% 
   ggplot(aes(x = diagnosis, y = age, fill = diagnosis)) +
   geom_boxplot() +
   labs(title = "Boxplot of Age by Diagnosis", x = "Diagnosis", y = "Age") +
   theme_bw() +
   theme(legend.position = "none")
+
+plotly::ggplotly(boxplot_ex)
+
+# save the boxplot as an image
+ggsave("output/boxplot_age_diagnosis.png", 
+       plot = boxplot_ex, 
+       width = 8, height = 6)
 
 
 # Boxplot of diagnosis by age with jitter
@@ -153,7 +167,9 @@ ggplot(df, aes(x = diagnosis, y = age, fill = diagnosis)) +
   labs(
     title = "Age Distribution by Diagnosis",
     subtitle = "COVID-19 patients appear older on average",
-    y = "Age", x = "Diagnosis"
+    y = "Age", x = "Diagnosis",
+    caption = "Data source: Hospital Admissions Dataset",
+    
   ) +
   annotate("curve", x = 3, xend = 3, y = 15, yend = 3,
            arrow = arrow(length = unit(0.02, "npc")), color = "red") +
@@ -172,7 +188,7 @@ df %>%
   labs(title = "Number of Admissions by Date", 
        x = "Admission Date", y = "Number of Admissions") +
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 
 df %>%
@@ -187,7 +203,7 @@ df %>%
     x = "Month", y = "Admissions"
   ) +
   annotate("rect", xmin = as.Date("2021-03-01"), xmax = as.Date("2021-04-30"),
-           ymin = 0, ymax = Inf, alpha = 0.2, fill = "red") +
+           ymin = 0, ymax = Inf, alpha = 0.1, fill = "red") +
   annotate("text", x = as.Date("2021-02-01"), y = max(df$id)/5, 
            label = "COVID-19 spike?", color = "red")
 
@@ -219,7 +235,7 @@ df %>%
 
 
 
-# Density plots -----------------------------------------------------------
+## Density plots -----------------------------------------------------------
 
 ggplot(df, aes(x = age, fill = gender)) +
   geom_density(alpha = 0.5) +
@@ -229,6 +245,7 @@ ggplot(df, aes(x = age, fill = gender)) +
     x = "Age", y = "Density"
   ) +
   theme_minimal()
+
 
 
 
