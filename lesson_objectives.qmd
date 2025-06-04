@@ -1,0 +1,107 @@
+---
+title: "Lesson Objectives"
+author: "Ntando"
+format: html
+editor: visual
+---
+
+##  Lessons Overview
+
+We are currently working on the following lessons aimed at building foundational to advanced R programming skills using real-world datasets and modern R packages.
+
+
+
+### 1. Data Loading from Various Sources
+
+#### Objective:
+
+Learn how to import data from different formats (e.g., CSV, Excel, SPSS, Stata, JSON) into R using appropriate packages.
+
+Short Notes:
+
+\- Use \`readr::read_csv()\`, \`readxl::read_excel()\`, \`haven::read_spss()\` / \`read_dta()\`, and \`jsonlite::fromJSON()\` for data import.
+
+\- Understand basic file path structures (absolute vs relative paths).
+
+\- Explore how to inspect imported data using functions like \`str()\`, \`glimpse()\`, and \`summary()\`.
+
+
+### 2. Data Manipulation Using \`dplyr\` and \`tidyr\`
+
+#### Objective:
+
+Master core data wrangling skills such as filtering, transforming, summarizing, and reshaping data using the tidyverse.
+
+Short Notes:
+
+\- Key \`dplyr\` verbs: \`filter()\`, \`select()\`, \`mutate()\`, \`arrange()\`, \`summarise()\`, \`group_by()\`.
+
+\- Use \`tidyr\` functions like \`pivot_longer()\`, \`pivot_wider()\`, \`separate()\`, \`unite()\` to reshape data.
+
+\- Chain operations using the pipe operator \`%\>%\`.
+
+
+### 3. Data Visualization Using \`ggplot2\`
+
+#### Objective:
+
+Develop the ability to create informative and aesthetic data visualizations using the \`ggplot2\` grammar of graphics.
+
+Short Notes:
+
+\- Understand the grammar: \`ggplot(data) + aes() + geom\_\*()\`.
+
+\- Use geoms like \`geom_point()\`, \`geom_bar()\`, \`geom_line()\`, \`geom_histogram()\`, etc.
+
+\- Customize plots using \`labs()\`, \`theme()\`, \`facet_wrap()\` and color/scale functions.
+
+\- Learn to create multi-layered plots and export them.
+
+### 4. Basic Statistics and Hypothesis Testing
+
+#### Objective:
+
+Apply fundamental statistical techniques and hypothesis testing methods using base R and tidyverse-compatible tools.
+
+Short Notes:
+
+\- Descriptive statistics: mean, median, standard deviation, IQR.
+
+\- Inferential stats: t-tests, chi-square tests, correlation.
+
+\- Use \`broom\` to tidy model outputs and \`infer\` package for intuitive hypothesis testing.
+
+\- Interpret p-values, confidence intervals, and test statistics.
+
+### 5. Machine Learning Using \`tidymodels\`
+
+#### Objective:
+
+Build predictive models using the \`tidymodels\` ecosystem, from data preprocessing to evaluation and tuning.
+
+Short Notes:
+
+\- Use \`recipes\` for preprocessing (e.g., scaling, imputation).
+
+\- Define and fit models using \`parsnip\`, evaluate with \`yardstick\`.
+
+\- Use \`workflows\` to streamline modeling pipelines.
+
+\- Apply resampling methods (e.g., cross-validation) using \`rsample\` and tune with \`tune\`.
+
+### 6. Web Scraping Using \`rvest\`
+
+#### Objective:
+
+Learn how to collect and parse data from web pages using the \`rvest\` package.
+
+Short Notes:
+
+\- Understand HTML structure and CSS selectors.
+
+\- Use functions like \`read_html()\`, \`html_nodes()\`, and \`html_text()\` to extract data.
+
+\- Handle pagination and dynamic content (introduce \`httr\` or \`rselenium\` if needed).
+
+\- Clean and store scraped data in structured formats for analysis.
+

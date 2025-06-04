@@ -1,0 +1,5 @@
+Hello world
+We are learning R programming with Oscar.
+The date is 19-05-25. 
+If we do a chapter per day, we might finish the course by 26/05/25.
+The course fee is $100.00, deposit was paid on the 23rd of May 2025

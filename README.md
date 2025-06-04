@@ -9,3 +9,7 @@ We are currently working on the following lessons:
 4. Basic statistics and hypothesis testing.
 5. Machine learning using tidymodels packages.
 6. Webscraping using rvest package.
+
+
+library(arrow)
+
